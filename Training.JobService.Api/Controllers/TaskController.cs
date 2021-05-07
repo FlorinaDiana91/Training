@@ -6,13 +6,24 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using NLog;
+using Training.Job.BusinessService;
 
 namespace Training.JobService.Api.Controllers
 {
     public class TaskController : ApiController
     {
-        readonly Logger _logger = LogManager.GetCurrentClassLogger();
-        private readonly Job.BusinessService.JobService _jobService = new Training.Job.BusinessService.JobService();
+       // readonly Logger _logger = LogManager.GetCurrentClassLogger();
+        readonly NLog.ILogger _logger;
+
+        private readonly Job.BusinessService.IJobService _jobService;
+        //= new Training.Job.BusinessService.JobService();
+
+        //il sterg
+        public TaskController(IJobService jobService, NLog.ILogger log)
+        {
+            this._jobService = jobService;
+            this._logger = log;
+        }
 
         [System.Web.Http.HttpGet]
         [System.Web.Http.Route("api/getJob/{id}")]
@@ -27,6 +38,7 @@ namespace Training.JobService.Api.Controllers
             {
                 result.Success = true;
                 result.Data = job;
+                _logger.Info("dddd");
             }
             catch (Exception ex)
             {

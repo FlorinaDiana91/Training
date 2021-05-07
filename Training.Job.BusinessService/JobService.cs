@@ -6,13 +6,14 @@ using Training.Job.DataContracts;
 
 namespace Training.Job.BusinessService
 {
-    public class JobService
+    public class JobService:IJobService
     {
         private readonly Training.Job.DAL.Interfaces.IJobRepository _jobRepository;
 
-        public JobService()
+        public JobService(Training.Job.DAL.Interfaces.IJobRepository jobRepository)
         {
-            _jobRepository = new JobRepository();
+            this._jobRepository = jobRepository;
+           // _jobRepository = new JobRepository();
         }
 
         public async Task<TaskResource> GetJobByID(int id)

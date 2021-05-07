@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.JobService.Api", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Job.Client", "Training.Job.Client\Training.Job.Client.csproj", "{6219DB4E-67D8-4B73-92F7-3C1074220BE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.NetCore.Services.JobQueue", "Training.NetCore.Services.JobQueue\Training.NetCore.Services.JobQueue.csproj", "{2738F979-8CAE-459B-B4AB-28D0D7894104}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,10 +39,6 @@ Global
 		{6219DB4E-67D8-4B73-92F7-3C1074220BE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6219DB4E-67D8-4B73-92F7-3C1074220BE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6219DB4E-67D8-4B73-92F7-3C1074220BE9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2738F979-8CAE-459B-B4AB-28D0D7894104}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2738F979-8CAE-459B-B4AB-28D0D7894104}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2738F979-8CAE-459B-B4AB-28D0D7894104}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2738F979-8CAE-459B-B4AB-28D0D7894104}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
