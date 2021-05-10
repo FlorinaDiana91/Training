@@ -12,13 +12,9 @@ namespace Training.JobService.Api.Controllers
 {
     public class TaskController : ApiController
     {
-       // readonly Logger _logger = LogManager.GetCurrentClassLogger();
         readonly NLog.ILogger _logger;
-
         private readonly Job.BusinessService.IJobService _jobService;
-        //= new Training.Job.BusinessService.JobService();
 
-        //il sterg
         public TaskController(IJobService jobService, NLog.ILogger log)
         {
             this._jobService = jobService;
@@ -38,7 +34,7 @@ namespace Training.JobService.Api.Controllers
             {
                 result.Success = true;
                 result.Data = job;
-                _logger.Info("dddd");
+                _logger.Info("Success");
             }
             catch (Exception ex)
             {
@@ -66,10 +62,76 @@ namespace Training.JobService.Api.Controllers
             catch (Exception ex)
             {
                 result.Error = "Error during retrieval of task resources";
-                //_logger.LogError(ex, result.Error);
+                _logger.Error(ex, result.Error);
                 return BadRequest(result.Error);
             }
             return Ok(job);
+        }
+
+
+        [System.Web.Http.HttpPut]
+        [System.Web.Http.Route("api/updateTaskResource")]
+        [Produces("application/json")]
+        public async Task<IHttpActionResult> UpdateTaskResource([System.Web.Http.FromBody] TaskResource task)
+        {
+            ApiResult<List<TaskResource>> result = new ApiResult<List<TaskResource>>();
+            try
+            {
+                result.Success = true;
+                await _jobService.UpdateTaskResource(task);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+
+                result.Error = "Error during updating of task resource";
+                _logger.Error(ex, result.Error);
+                return BadRequest(result.Error);
+            }
+        }
+
+
+        [System.Web.Http.HttpDelete]
+        [System.Web.Http.Route("api/deleteTaskResource/{taskID}")]
+        [Produces("application/json")]
+        public async Task<IHttpActionResult> DeleteTaskResource(int taskID)
+        {
+            ApiResult<List<TaskResource>> result = new ApiResult<List<TaskResource>>();
+            try
+            {
+                result.Success = true;
+                await _jobService.DeleteTaskResource(taskID);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+
+                result.Error = "Error during removing of task resource";
+                _logger.Error(ex, result.Error);
+                return BadRequest(result.Error);
+            }
+
+        }
+
+        [System.Web.Http.HttpPost]
+        [System.Web.Http.Route("api/addTaskResource")]
+        [Produces("application/json")]
+        public async Task<IHttpActionResult> AddTaskResource([System.Web.Http.FromBody] Training.Job.DAL.DataModel.Task task)
+        {
+            ApiResult<List<TaskResource>> result = new ApiResult<List<TaskResource>>();
+            try
+            {
+                result.Success = true;
+                await _jobService.AddTaskResource(task);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+
+                result.Error = "Error during creation of task resources";
+                _logger.Error(ex, result.Error);
+                return BadRequest(result.Error);
+            }
         }
     }
 }

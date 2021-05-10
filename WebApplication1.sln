@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Job.DataContracts"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.JobService.Api", "Training.JobService.Api\Training.JobService.Api.csproj", "{46DF5C40-E1C2-4DDE-8F7C-7F4FB2B50CE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Job.Client", "Training.Job.Client\Training.Job.Client.csproj", "{6219DB4E-67D8-4B73-92F7-3C1074220BE9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Job.Tests", "Training.Job.Tests\Training.Job.Tests.csproj", "{888FFFFB-FC50-45E3-896A-CB7438530F70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{46DF5C40-E1C2-4DDE-8F7C-7F4FB2B50CE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46DF5C40-E1C2-4DDE-8F7C-7F4FB2B50CE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46DF5C40-E1C2-4DDE-8F7C-7F4FB2B50CE2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6219DB4E-67D8-4B73-92F7-3C1074220BE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6219DB4E-67D8-4B73-92F7-3C1074220BE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6219DB4E-67D8-4B73-92F7-3C1074220BE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6219DB4E-67D8-4B73-92F7-3C1074220BE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{888FFFFB-FC50-45E3-896A-CB7438530F70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{888FFFFB-FC50-45E3-896A-CB7438530F70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{888FFFFB-FC50-45E3-896A-CB7438530F70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{888FFFFB-FC50-45E3-896A-CB7438530F70}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

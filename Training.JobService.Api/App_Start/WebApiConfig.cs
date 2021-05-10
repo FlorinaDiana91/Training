@@ -11,6 +11,8 @@ using Unity;
 using Unity.AspNet.WebApi;
 using Microsoft.Extensions.Logging;
 using Training.JobService.Api.Controllers;
+using System.Data.Entity;
+using Training.Job.DAL.DataModel;
 
 namespace Training.JobService.Api
 {
@@ -20,11 +22,16 @@ namespace Training.JobService.Api
         {
             // Web API configuration and services
             var container = new UnityContainer();
+
+            container.RegisterType<DbContext, TrainingEntities>();
+
             container
                 .RegisterType<IJobRepository, JobRepository>();
             container
                 .RegisterType<IJobService, Training.Job.BusinessService.JobService>();
             container.RegisterType<NLog.ILogger, NLog.Logger>();
+
+            
 
             //config.DependencyResolver = new Unity.AspNet.WebApi.UnityDependencyResolver(container);
 

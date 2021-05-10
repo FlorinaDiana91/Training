@@ -18,7 +18,7 @@ namespace Training.Job.BusinessService.ExtensionMethods
                 TaskID = task.TaskID,
                 TaskName = task.TaskName,
                 TaskProcessed = task.TaskProcessed,
-                TypeName = task.TaskType.Name,
+                TypeName = task.TaskType?.Name,
                 TaskDate = task.TaskDate
             };
         }

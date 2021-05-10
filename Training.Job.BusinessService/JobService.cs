@@ -10,12 +10,20 @@ namespace Training.Job.BusinessService
     {
         private readonly Training.Job.DAL.Interfaces.IJobRepository _jobRepository;
 
-        public JobService(Training.Job.DAL.Interfaces.IJobRepository jobRepository)
+        public JobService(DAL.Interfaces.IJobRepository jobRepository)
         {
             this._jobRepository = jobRepository;
-           // _jobRepository = new JobRepository();
         }
 
+        public async Task<bool> AddTaskResource(DAL.DataModel.Task task)
+        {
+           return await _jobRepository.AddTaskResource(task);
+        }
+
+        public async Task<bool> DeleteTaskResource(int id)
+        {
+            return await _jobRepository.DeleteTaskResource(id);
+        }
         public async Task<TaskResource> GetJobByID(int id)
         {
             var job = await _jobRepository.GetJobByID(id);
@@ -36,6 +44,11 @@ namespace Training.Job.BusinessService
             }
 
             return null;
+        }
+
+        public async Task<bool> UpdateTaskResource(TaskResource task)
+        {
+            return await _jobRepository.UpdateTaskResource(task);
         }
     }
 }
