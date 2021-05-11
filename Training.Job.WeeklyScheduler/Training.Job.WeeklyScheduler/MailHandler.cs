@@ -1,6 +1,7 @@
 ﻿using NLog;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
@@ -15,10 +16,12 @@ namespace Training.Job.WeeklyScheduler
         {
             using (SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587))
             {
-                var basicCredential = new NetworkCredential("panaintediana91@gmail.com", "Anewlife,22");
+                string password = ConfigurationManager.AppSettings["password"];
+                string email = ConfigurationManager.AppSettings["email"];
+                var basicCredential = new NetworkCredential(email, password);
                 using (MailMessage message = new MailMessage())
                 {
-                    MailAddress fromAddress = new MailAddress("panaintediana91@gmail.com");
+                    MailAddress fromAddress = new MailAddress(email);
 
                     smtpClient.Host = "smtp.gmail.com";
                     smtpClient.Port = 587;
@@ -28,15 +31,13 @@ namespace Training.Job.WeeklyScheduler
                     smtpClient.Credentials = basicCredential;
                     message.From = fromAddress;
                     message.Subject = "Weekly job to run";
-                    // Set IsBodyHtml to true means you can send HTML email.
                     message.IsBodyHtml = true;
 
                     StringBuilder bodyTemplate = new StringBuilder();
 
                     foreach (var job in jobs)
                     {
-                        bodyTemplate.Append("<tr>\r\n");
-                        bodyTemplate.Append("<td style=\"font-family: Verdana; padding:2px; font-size: 12px; text-align:left\">" + job.TaskName + "</td>\r\n");
+                        bodyTemplate.Append(job.TaskName + "\r\n");
                     }
 
                     message.Body = bodyTemplate.ToString();

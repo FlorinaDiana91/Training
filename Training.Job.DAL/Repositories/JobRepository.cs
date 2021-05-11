@@ -9,12 +9,10 @@ namespace Training.Job.DAL
 {
     public class JobRepository : IJobRepository
     {
-        //il sterg
         protected readonly TrainingEntities _context;
 
         public JobRepository(TrainingEntities context)
         {
-            //il sterg
             _context = context;
         }
 
